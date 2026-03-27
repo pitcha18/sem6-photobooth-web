@@ -1,11 +1,11 @@
 import { supabase } from "@/lib/supabase";
+import { CONSTANTS } from "@/lib/constants";
 
 export const useStorage = () => {
-  const bucketName = "guide-picture-bucket";
 
   async function getAllImageUrlFromFolder(folderName) {
     const { data, error } = await supabase.storage
-      .from(bucketName) // Replace with your bucket name
+      .from(CONSTANTS.BUCKET_NAME) // Replace with your bucket name
       .list(folderName, {
         limit: 100,
         offset: 0,
@@ -24,7 +24,7 @@ export const useStorage = () => {
         const {
           data: { publicUrl },
         } = supabase.storage
-          .from(bucketName)
+          .from(CONSTANTS.BUCKET_NAME)
           .getPublicUrl(`${folderName}/${file.name}`); // Matches '1-people/image.jpg'
 
         return publicUrl;

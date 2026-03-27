@@ -1,7 +1,5 @@
 'use client'
 import Link from "next/link";
-import { useStorage } from "./hooks/useStorage";
-import { useState } from "react";
 import { GuidePicture } from "./components/guide-picture/GuidePicture";
 
 export default function Home() {
